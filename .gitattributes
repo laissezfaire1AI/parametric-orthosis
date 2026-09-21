@@ -1,0 +1,5 @@
+# Keep text files LF in the repository. GitHub Actions runs on Linux and a
+# CRLF workflow file or python script causes avoidable breakage.
+* text=auto eol=lf
+*.gh binary
+*.png binary
