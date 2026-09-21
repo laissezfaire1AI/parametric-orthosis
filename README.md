@@ -1,5 +1,7 @@
 # Parametric forearm orthosis
 
+[![validate](https://github.com/laissezfaire1AI/parametric-orthosis/actions/workflows/validate.yml/badge.svg)](https://github.com/laissezfaire1AI/parametric-orthosis/actions/workflows/validate.yml)
+
 A rule-based Grasshopper definition for a 3D-printed forearm orthosis, with the
 product UI described in JSON and a CI job that keeps the two in step.
 
