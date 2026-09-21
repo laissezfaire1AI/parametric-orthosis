@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/orthosis-product-1.json",
+  "title": "Parametric product definition",
+  "description": "Describes a configurable product: the UI the clinician sees and the Grasshopper definition that generates its geometry.",
+  "type": "object",
+  "required": ["product", "geometryBackend", "groups", "parameters", "manufacturing"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "product": {
+      "type": "object",
+      "required": ["id", "name", "version", "units"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+        "name": { "$ref": "#/$defs/localised" },
+        "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+        "units": { "enum": ["mm", "cm", "in"] }
+      }
+    },
+    "geometryBackend": {
+      "type": "object",
+      "required": ["engine", "definition", "rhinoVersion", "outputComponent"],
+      "additionalProperties": false,
+      "properties": {
+        "engine": { "const": "grasshopper" },
+        "definition": { "type": "string", "pattern": "\\.ghx$" },
+        "binary": { "type": "string", "pattern": "\\.gh$" },
+        "rhinoVersion": { "type": "integer", "minimum": 6, "maximum": 9 },
+        "scriptComponents": {
+          "type": "boolean",
+          "description": "Must stay false: ShapeDiver allows script components only on paid plans and reviews each one manually."
+        },
+        "outputComponent": { "type": "string", "minLength": 1 },
+        "hosted": { "type": "string", "format": "uri" }
+      }
+    },
+    "groups": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "order", "label"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+          "order": { "type": "integer", "minimum": 1 },
+          "label": { "$ref": "#/$defs/localised" },
+          "help": { "$ref": "#/$defs/localised" }
+        }
+      }
+    },
+    "parameters": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/parameter" }
+    },
+    "manufacturing": {
+      "type": "object",
+      "required": ["processes", "outputFormats", "meshRequirements"],
+      "additionalProperties": false,
+      "properties": {
+        "processes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "enum": ["FDM", "SLS", "SLA", "MJF"] }
+        },
+        "outputFormats": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "enum": ["3mf", "stl", "obj", "step"] }
+        },
+        "meshRequirements": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "closed": { "type": "boolean" },
+            "valid": { "type": "boolean" }
+          }
+        },
+        "notes": { "$ref": "#/$defs/localised" }
+      }
+    }
+  },
+  "$defs": {
+    "localised": {
+      "type": "object",
+      "required": ["en"],
+      "additionalProperties": false,
+      "properties": {
+        "en": { "type": "string", "minLength": 1 },
+        "de": { "type": "string", "minLength": 1 }
+      }
+    },
+    "parameter": {
+      "type": "object",
+      "required": ["id", "ghSlider", "group", "order", "type", "min", "max", "step", "default", "label"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "ghSlider": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Nickname of the Number Slider in the Grasshopper definition. CI checks this binding exists and that the ranges match."
+        },
+        "group": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "order": { "type": "integer", "minimum": 1 },
+        "type": { "enum": ["number", "integer"] },
+        "unit": { "enum": ["mm", "cm", "in", "deg"] },
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "step": { "type": "number", "exclusiveMinimum": 0 },
+        "default": { "type": "number" },
+        "label": { "$ref": "#/$defs/localised" },
+        "help": { "$ref": "#/$defs/localised" }
+      }
+    }
+  }
+}

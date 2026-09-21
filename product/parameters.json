@@ -1,0 +1,181 @@
+{
+  "$schema": "./parameters.schema.json",
+  "product": {
+    "id": "forearm-orthosis",
+    "name": {
+      "en": "Parametric forearm orthosis",
+      "de": "Parametrische Unterarmorthese"
+    },
+    "version": "1.0.0",
+    "units": "mm"
+  },
+  "geometryBackend": {
+    "engine": "grasshopper",
+    "definition": "definition/orthosis.ghx",
+    "binary": "definition/orthosis.gh",
+    "rhinoVersion": 8,
+    "scriptComponents": false,
+    "outputComponent": "ORTHOSIS",
+    "hosted": "https://www.shapediver.com/app/m/orthosis"
+  },
+  "groups": [
+    {
+      "id": "measurements",
+      "order": 1,
+      "label": { "en": "Patient measurements", "de": "Patientenmasse" },
+      "help": {
+        "en": "Taken with a tape measure, snug against the skin but not compressing it.",
+        "de": "Mit dem Massband anliegend messen, ohne die Haut einzudruecken."
+      }
+    },
+    {
+      "id": "structure",
+      "order": 2,
+      "label": { "en": "Structure", "de": "Struktur" },
+      "help": {
+        "en": "Governs stiffness, weight and ventilation of the printed part.",
+        "de": "Bestimmt Steifigkeit, Gewicht und Belueftung des Druckteils."
+      }
+    },
+    {
+      "id": "fitting",
+      "order": 3,
+      "label": { "en": "Fitting", "de": "Anpassung" },
+      "help": {
+        "en": "How far the shell wraps around the limb.",
+        "de": "Wie weit die Schale den Arm umschliesst."
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "id": "forearm_circumference",
+      "ghSlider": "Forearm circumference mm",
+      "group": "measurements",
+      "order": 1,
+      "type": "number",
+      "unit": "mm",
+      "min": 200,
+      "max": 340,
+      "step": 1,
+      "default": 260,
+      "label": { "en": "Forearm circumference", "de": "Unterarmumfang" },
+      "help": {
+        "en": "Measured at the widest point below the elbow.",
+        "de": "Am breitesten Punkt unterhalb des Ellenbogens gemessen."
+      }
+    },
+    {
+      "id": "wrist_circumference",
+      "ghSlider": "Wrist circumference mm",
+      "group": "measurements",
+      "order": 2,
+      "type": "number",
+      "unit": "mm",
+      "min": 130,
+      "max": 230,
+      "step": 1,
+      "default": 170,
+      "label": { "en": "Wrist circumference", "de": "Handgelenkumfang" },
+      "help": {
+        "en": "Measured across the styloid processes.",
+        "de": "Ueber den Griffelfortsaetzen gemessen."
+      }
+    },
+    {
+      "id": "length",
+      "ghSlider": "Length mm",
+      "group": "measurements",
+      "order": 3,
+      "type": "number",
+      "unit": "mm",
+      "min": 120,
+      "max": 280,
+      "step": 1,
+      "default": 200,
+      "label": { "en": "Length", "de": "Laenge" },
+      "help": {
+        "en": "Distance the shell covers along the forearm.",
+        "de": "Strecke, die die Schale am Unterarm abdeckt."
+      }
+    },
+    {
+      "id": "strut_thickness",
+      "ghSlider": "Strut thickness mm",
+      "group": "structure",
+      "order": 1,
+      "type": "number",
+      "unit": "mm",
+      "min": 1.5,
+      "max": 5.0,
+      "step": 0.1,
+      "default": 3.0,
+      "label": { "en": "Strut thickness", "de": "Stegstaerke" },
+      "help": {
+        "en": "Minimum is set by the printer nozzle and the material.",
+        "de": "Das Minimum ergibt sich aus Duesendurchmesser und Material."
+      }
+    },
+    {
+      "id": "hoops",
+      "ghSlider": "Hoops along length",
+      "group": "structure",
+      "order": 2,
+      "type": "integer",
+      "min": 4,
+      "max": 16,
+      "step": 1,
+      "default": 8,
+      "label": { "en": "Hoops along length", "de": "Ringe ueber die Laenge" },
+      "help": {
+        "en": "More hoops resist bending; fewer give a lighter part.",
+        "de": "Mehr Ringe erhoehen die Biegesteifigkeit, weniger sparen Gewicht."
+      }
+    },
+    {
+      "id": "ribs",
+      "ghSlider": "Ribs around",
+      "group": "structure",
+      "order": 3,
+      "type": "integer",
+      "min": 6,
+      "max": 24,
+      "step": 1,
+      "default": 12,
+      "label": { "en": "Ribs around", "de": "Rippen im Umfang" },
+      "help": {
+        "en": "More ribs resist twisting and close up the ventilation openings.",
+        "de": "Mehr Rippen erhoehen die Torsionssteifigkeit und verkleinern die Belueftungsoeffnungen."
+      }
+    },
+    {
+      "id": "opening_angle",
+      "ghSlider": "Opening angle deg",
+      "group": "fitting",
+      "order": 1,
+      "type": "number",
+      "unit": "deg",
+      "min": 200,
+      "max": 330,
+      "step": 1,
+      "default": 290,
+      "label": { "en": "Wrap angle", "de": "Umschliessungswinkel" },
+      "help": {
+        "en": "330 degrees nearly closes the shell; 200 leaves a wide opening for swelling.",
+        "de": "330 Grad schliesst die Schale fast; 200 laesst eine weite Oeffnung fuer Schwellungen."
+      }
+    }
+  ],
+  "manufacturing": {
+    "processes": ["FDM", "SLS"],
+    "outputFormats": ["3mf", "stl"],
+    "meshRequirements": {
+      "closed": true,
+      "valid": true
+    },
+    "notes": {
+      "en": "Every parameter combination in the verified range produces closed, valid meshes. See docs/verify_report.json.",
+      "de": "Jede geprueft Parameterkombination liefert geschlossene, gueltige Netze. Siehe docs/verify_report.json."
+    }
+  }
+}

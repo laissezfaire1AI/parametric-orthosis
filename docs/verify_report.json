@@ -1,0 +1,371 @@
+{
+ "passed": 25,
+ "total": 25,
+ "cases": [
+  {
+   "case": "defaults",
+   "changed": {},
+   "errors": 0,
+   "warnings": 0,
+   "breps": 26,
+   "meshes": 26,
+   "meshes_valid": 26,
+   "meshes_closed": 26,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Forearm circumference mm = min (200)",
+   "changed": {
+    "Forearm circumference mm": 200.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 26,
+   "meshes": 26,
+   "meshes_valid": 26,
+   "meshes_closed": 26,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Forearm circumference mm = mid (270)",
+   "changed": {
+    "Forearm circumference mm": 270.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 26,
+   "meshes": 26,
+   "meshes_valid": 26,
+   "meshes_closed": 26,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Forearm circumference mm = max (340)",
+   "changed": {
+    "Forearm circumference mm": 340.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 26,
+   "meshes": 26,
+   "meshes_valid": 26,
+   "meshes_closed": 26,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Wrist circumference mm = min (130)",
+   "changed": {
+    "Wrist circumference mm": 130.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 26,
+   "meshes": 26,
+   "meshes_valid": 26,
+   "meshes_closed": 26,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Wrist circumference mm = mid (180)",
+   "changed": {
+    "Wrist circumference mm": 180.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 26,
+   "meshes": 26,
+   "meshes_valid": 26,
+   "meshes_closed": 26,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Wrist circumference mm = max (230)",
+   "changed": {
+    "Wrist circumference mm": 230.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 26,
+   "meshes": 26,
+   "meshes_valid": 26,
+   "meshes_closed": 26,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Length mm = min (120)",
+   "changed": {
+    "Length mm": 120.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 26,
+   "meshes": 26,
+   "meshes_valid": 26,
+   "meshes_closed": 26,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Length mm = mid (200)",
+   "changed": {
+    "Length mm": 200.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 26,
+   "meshes": 26,
+   "meshes_valid": 26,
+   "meshes_closed": 26,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Length mm = max (280)",
+   "changed": {
+    "Length mm": 280.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 26,
+   "meshes": 26,
+   "meshes_valid": 26,
+   "meshes_closed": 26,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Strut thickness mm = min (1.5)",
+   "changed": {
+    "Strut thickness mm": 1.5
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 26,
+   "meshes": 26,
+   "meshes_valid": 26,
+   "meshes_closed": 26,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Strut thickness mm = mid (3.25)",
+   "changed": {
+    "Strut thickness mm": 3.25
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 26,
+   "meshes": 26,
+   "meshes_valid": 26,
+   "meshes_closed": 26,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Strut thickness mm = max (5)",
+   "changed": {
+    "Strut thickness mm": 5.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 26,
+   "meshes": 26,
+   "meshes_valid": 26,
+   "meshes_closed": 26,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Hoops along length = min (4)",
+   "changed": {
+    "Hoops along length": 4.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 22,
+   "meshes": 22,
+   "meshes_valid": 22,
+   "meshes_closed": 22,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Hoops along length = mid (10)",
+   "changed": {
+    "Hoops along length": 10.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 28,
+   "meshes": 28,
+   "meshes_valid": 28,
+   "meshes_closed": 28,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Hoops along length = max (16)",
+   "changed": {
+    "Hoops along length": 16.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 34,
+   "meshes": 34,
+   "meshes_valid": 34,
+   "meshes_closed": 34,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Ribs around = min (6)",
+   "changed": {
+    "Ribs around": 6.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 20,
+   "meshes": 20,
+   "meshes_valid": 20,
+   "meshes_closed": 20,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Ribs around = mid (15)",
+   "changed": {
+    "Ribs around": 15.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 29,
+   "meshes": 29,
+   "meshes_valid": 29,
+   "meshes_closed": 29,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Ribs around = max (24)",
+   "changed": {
+    "Ribs around": 24.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 38,
+   "meshes": 38,
+   "meshes_valid": 38,
+   "meshes_closed": 38,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Opening angle deg = min (200)",
+   "changed": {
+    "Opening angle deg": 200.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 26,
+   "meshes": 26,
+   "meshes_valid": 26,
+   "meshes_closed": 26,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Opening angle deg = mid (265)",
+   "changed": {
+    "Opening angle deg": 265.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 26,
+   "meshes": 26,
+   "meshes_valid": 26,
+   "meshes_closed": 26,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "Opening angle deg = max (330)",
+   "changed": {
+    "Opening angle deg": 330.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 26,
+   "meshes": 26,
+   "meshes_valid": 26,
+   "meshes_closed": 26,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "ALL MIN",
+   "changed": {
+    "Forearm circumference mm": 200.0,
+    "Wrist circumference mm": 130.0,
+    "Length mm": 120.0,
+    "Strut thickness mm": 1.5,
+    "Hoops along length": 4.0,
+    "Ribs around": 6.0,
+    "Opening angle deg": 200.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 16,
+   "meshes": 16,
+   "meshes_valid": 16,
+   "meshes_closed": 16,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "ALL MAX",
+   "changed": {
+    "Forearm circumference mm": 340.0,
+    "Wrist circumference mm": 230.0,
+    "Length mm": 280.0,
+    "Strut thickness mm": 5.0,
+    "Hoops along length": 16.0,
+    "Ribs around": 24.0,
+    "Opening angle deg": 330.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 46,
+   "meshes": 46,
+   "meshes_valid": 46,
+   "meshes_closed": 46,
+   "error_text": [],
+   "pass": true
+  },
+  {
+   "case": "WORST CASE thick+dense+small",
+   "changed": {
+    "Strut thickness mm": 5.0,
+    "Ribs around": 24.0,
+    "Hoops along length": 16.0,
+    "Forearm circumference mm": 200.0,
+    "Wrist circumference mm": 130.0,
+    "Length mm": 120.0
+   },
+   "errors": 0,
+   "warnings": 0,
+   "breps": 46,
+   "meshes": 46,
+   "meshes_valid": 46,
+   "meshes_closed": 46,
+   "error_text": [],
+   "pass": true
+  }
+ ]
+}

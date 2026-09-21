@@ -1,0 +1,57 @@
+name: validate
+
+# The Grasshopper definition is the geometry backend; product/parameters.json is
+# the UI contract in front of it. This workflow fails the build if the two drift
+# apart. It parses the .ghx as XML, so it needs neither Rhino nor Windows.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: python -m pip install --quiet jsonschema
+
+      - name: JSON definition matches the Grasshopper definition
+        run: python tools/check_parameters.py .
+
+      - name: The drift check catches drift
+        run: python tools/test_check_parameters.py .
+
+      - name: Definition is free of script components
+        # ShapeDiver allows C#/Python/VB script components only on paid plans and
+        # reviews each one by hand, which would block every deploy. Keep them out.
+        run: |
+          if grep -aiE '<item name="Name"[^>]*>[^<]*(Script|Python|C#|VB)[^<]*<' definition/orthosis.ghx; then
+            echo "::error::script component found in the definition"
+            exit 1
+          fi
+          echo "no script components"
+
+      - name: Verification report is present and green
+        run: |
+          python - <<'PY'
+          import json, sys
+          r = json.load(open("docs/verify_report.json", encoding="utf-8"))
+          print("verification: %d / %d cases passed" % (r["passed"], r["total"]))
+          if r["passed"] != r["total"]:
+              for c in r["cases"]:
+                  if not c["pass"]:
+                      print("  failed:", c["case"], c.get("error_text"))
+              sys.exit(1)
+          for c in r["cases"]:
+              if c["meshes"] == 0 or c["meshes"] != c["meshes_closed"]:
+                  print("  not watertight:", c["case"]); sys.exit(1)
+          print("every case produced closed, watertight meshes")
+          PY
